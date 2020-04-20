@@ -41,6 +41,7 @@ namespace MiCalculadora
             this.txbPriOperando.Text = "";
             this.txbSegOperando.Text = "";
             this.cmbSigno.Text = "";
+            this.lblResultado.Text = "";
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -85,9 +86,9 @@ namespace MiCalculadora
         {
             Entidades.Numero resultado = new Entidades.Numero();
 
-            if (lblResultado.Text == "" || lblResultado.Text == "error")
+            if (lblResultado.Text == "")
             {
-                lblResultado.Text = "error";
+                MessageBox.Show("error");
             }
             else
             {
@@ -100,6 +101,11 @@ namespace MiCalculadora
             Numero n1 = new Numero(numero1);
             Numero n2 = new Numero(numero2);
             return Calculadora.Operar(n1, n2, operador);
+        }
+
+        private void txbSegOperando_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
